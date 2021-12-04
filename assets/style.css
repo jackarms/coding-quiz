@@ -1,0 +1,10 @@
+.opening-page{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 35%;
+    padding-top: 20%;
+}
+.btn{
+    width: fit-content;
+}
