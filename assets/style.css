@@ -9,6 +9,13 @@
 .btn{
     width: fit-content;
 }
+.answers {
+    display: flex;
+    position: relative;
+    padding-top: none;
+    flex-direction: column;
+    padding-left: 35%;
+}
 .questions {
     display: flex;
     flex-direction: column;
