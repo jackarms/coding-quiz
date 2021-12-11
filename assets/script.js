@@ -69,23 +69,22 @@ var showQuestions = function() {
 
     questionsAndAnswers.forEach((q, index, arr) => {
         questionsEl.innerText = arr[questionIndex].question;
-        if(radioEl.onclick()) {
-            questionIndex++
-        }
+        
         });
 }
 
 var showAnswers = function() {
     questionsAndAnswers[answerIndex].answers.forEach(answer => {
-         
+       
        let theAnswers = answer;
-       console.log(theAnswers)
+       
+       console.log(theAnswers[0])
        let ulEl = document.createElement('ul');
        let liEl = document.createElement('li');
        let radioEl = document.createElement('INPUT');
        radioEl.setAttribute('type', 'radio')
        radioEl.setAttribute('id', 'radio');
-       radioEl.setAttribute('value', 'name');
+       radioEl.setAttribute('value', theAnswers);
        radioEl.setAttribute('name', 'radioName');
        radioEl.setAttribute('onclick', 'theClick()');
        let lblEl = document.createElement('label')
@@ -96,14 +95,18 @@ var showAnswers = function() {
        answersDiv.appendChild(ulEl);
        
     radioEl.onclick = function () {
-        
-        if (document.getElementById('radio').checked ==true){
-            console.log("true");
+        for(let i =0; i < theCorrectAnswer.length; i++) {
+        if(radioEl.value == theCorrectAnswer[i]){
+            questionsEl.remove();
+            answersDiv.remove();
             questionIndex++
             answerIndex++
         } else {
-            console.log("false");
-        }
+            questionsEl.remove();
+            answersDiv.remove();
+            questionIndex++
+            answerIndex++
+        }}
     }
     })
 }
